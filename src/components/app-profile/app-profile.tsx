@@ -78,6 +78,10 @@ export class AppProfile {
     return [
       <ion-header>
         <ion-toolbar color='primary'>
+          <ion-buttons slot="start">
+            <ion-back-button defaultHref='/home'></ion-back-button>
+          </ion-buttons>
+
           <ion-title>Ionic PWA Toolkit</ion-title>
         </ion-toolbar>
       </ion-header>,
