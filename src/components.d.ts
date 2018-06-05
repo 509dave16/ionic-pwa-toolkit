@@ -99,6 +99,39 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface MenuControllerInjector {
+      'create': () => Promise<HTMLIonMenuControllerElement>;
+    }
+  }
+
+  interface HTMLMenuControllerInjectorElement extends StencilComponents.MenuControllerInjector, HTMLStencilElement {}
+
+  var HTMLMenuControllerInjectorElement: {
+    prototype: HTMLMenuControllerInjectorElement;
+    new (): HTMLMenuControllerInjectorElement;
+  };
+  interface HTMLElementTagNameMap {
+    'menu-controller-injector': HTMLMenuControllerInjectorElement;
+  }
+  interface ElementTagNameMap {
+    'menu-controller-injector': HTMLMenuControllerInjectorElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'menu-controller-injector': JSXElements.MenuControllerInjectorAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface MenuControllerInjectorAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface ModalControllerInjector {
       'create': () => Promise<HTMLIonModalControllerElement>;
     }
