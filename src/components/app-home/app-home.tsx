@@ -27,7 +27,7 @@ export class AppHome {
           <ion-title>Ionic PWA Toolkit</ion-title>
         </ion-toolbar>
       </ion-header>,
-      <ion-menu contentId={'my-content'}>
+      <ion-menu >
         <ion-content class="menu">
           <ion-list style={{ 'padding': '10px'}}>
             <ion-button expand={'block'} href={'/home'}>Home</ion-button>
@@ -35,7 +35,7 @@ export class AppHome {
           </ion-list>
         </ion-content>
       </ion-menu>,
-      <ion-content id="my-content" padding>
+      <ion-content main padding>
         <main>
           <p>
             Welcome to the Ionic PWA Toolkit.
