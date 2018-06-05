@@ -165,6 +165,39 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface MyPage {
+      'pageTitle': string;
+    }
+  }
+
+  interface HTMLMyPageElement extends StencilComponents.MyPage, HTMLStencilElement {}
+
+  var HTMLMyPageElement: {
+    prototype: HTMLMyPageElement;
+    new (): HTMLMyPageElement;
+  };
+  interface HTMLElementTagNameMap {
+    'my-page': HTMLMyPageElement;
+  }
+  interface ElementTagNameMap {
+    'my-page': HTMLMyPageElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'my-page': JSXElements.MyPageAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface MyPageAttributes extends HTMLAttributes {
+      'pageTitle'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface NavInjector {
       'create': () => Promise<HTMLIonNavElement>;
     }
