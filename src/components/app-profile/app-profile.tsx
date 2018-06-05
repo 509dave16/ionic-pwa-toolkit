@@ -1,6 +1,7 @@
 import { Component, Listen, Prop, State } from '@stencil/core';
 
 import { urlB64ToUint8Array } from '../../helpers/utils';
+import {IStencilElementInjector} from "../../interfaces/IStencilElementInjector";
 
 
 @Component({
@@ -8,6 +9,8 @@ import { urlB64ToUint8Array } from '../../helpers/utils';
   styleUrl: 'app-profile.css'
 })
 export class AppProfile {
+  @Prop({'connect': 'modal-controller-injector'}) modalCtrlInjector: IStencilElementInjector;
+  private modalCtrl: HTMLIonModalControllerElement;
 
   @Prop({ connect: 'ion-toast-controller' }) toastCtrl: HTMLIonToastControllerElement;
   @Prop() name: string;
@@ -19,13 +22,50 @@ export class AppProfile {
   // replace with your key in production
   publicServerKey = urlB64ToUint8Array('BBsb4au59pTKF4IKi-aJkEAGPXxtzs-lbtL58QxolsT2T-3dVQIXTUCCE1TSY8hyUvXLhJFEUmH7b5SJfSTcT-E');
 
-  componentWillLoad() {
+  // componentWillLoad() {
+  //   if ('serviceWorker' in navigator && 'PushManager' in window) {
+  //     this.swSupport = true;
+  //   } else {
+  //     this.swSupport = false;
+  //   }
+  // }
+
+
+  componentWillLoad = async() => {
     if ('serviceWorker' in navigator && 'PushManager' in window) {
       this.swSupport = true;
     } else {
       this.swSupport = false;
     }
-  }
+    this.modalCtrl = (await this.modalCtrlInjector.create()) as HTMLIonModalControllerElement;
+    console.log(this.modalCtrl.create);
+    // create component to open
+    const element = document.createElement('div');
+    element.innerHTML = `
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Super Modal</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <h1>Content of doom</h1>
+        <div>Here's some more content</div>
+        <ion-button class="dismiss">Dismiss Modal</ion-button>
+      </ion-content>
+    `;
+
+    // listen for close event
+    const button = element.querySelector('ion-button');
+    button.addEventListener('click', () => {
+      this.modalCtrl.dismiss();
+    });
+
+    // present the modal
+    const modalElement = await this.modalCtrl.create({
+      component: element
+    });
+    modalElement.present();
+  };
 
   @Listen('ionChange')
   subscribeToNotify($event: CustomEvent) {

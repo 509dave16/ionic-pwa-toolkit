@@ -99,6 +99,39 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface ModalControllerInjector {
+      'create': () => Promise<HTMLIonModalControllerElement>;
+    }
+  }
+
+  interface HTMLModalControllerInjectorElement extends StencilComponents.ModalControllerInjector, HTMLStencilElement {}
+
+  var HTMLModalControllerInjectorElement: {
+    prototype: HTMLModalControllerInjectorElement;
+    new (): HTMLModalControllerInjectorElement;
+  };
+  interface HTMLElementTagNameMap {
+    'modal-controller-injector': HTMLModalControllerInjectorElement;
+  }
+  interface ElementTagNameMap {
+    'modal-controller-injector': HTMLModalControllerInjectorElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'modal-controller-injector': JSXElements.ModalControllerInjectorAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ModalControllerInjectorAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface MyApp {
 
     }

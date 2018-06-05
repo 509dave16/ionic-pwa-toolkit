@@ -1,4 +1,5 @@
-import { Component } from '@stencil/core';
+import {Component, Prop} from '@stencil/core';
+import {IStencilElementInjector} from "../../interfaces/IStencilElementInjector";
 
 
 @Component({
@@ -6,6 +7,40 @@ import { Component } from '@stencil/core';
   styleUrl: 'app-home.css'
 })
 export class AppHome {
+
+  @Prop({'connect': 'modal-controller-injector'}) modalCtrlInjector: IStencilElementInjector;
+  private modalCtrl: HTMLIonModalControllerElement;
+
+  componentWillLoad = async() => {
+    this.modalCtrl = (await this.modalCtrlInjector.create()) as HTMLIonModalControllerElement;
+    console.log(this.modalCtrl.create);
+    // create component to open
+    const element = document.createElement('div');
+    element.innerHTML = `
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Super Modal</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <h1>Content of doom</h1>
+        <div>Here's some more content</div>
+        <ion-button class="dismiss">Dismiss Modal</ion-button>
+      </ion-content>
+    `;
+
+    // listen for close event
+    const button = element.querySelector('ion-button');
+    button.addEventListener('click', () => {
+      this.modalCtrl.dismiss();
+    });
+
+    // present the modal
+    const modalElement = await this.modalCtrl.create({
+      component: element
+    });
+    modalElement.present();
+  };
 
   render() {
     return [

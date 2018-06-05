@@ -1,3 +1,5 @@
+// TODO: Link to Modal Controller definition and readme
+// https://github.com/ionic-team/ionic/tree/master/core/src/components/modal-controller
 import '@ionic/core';
 import {Component, Prop, Listen} from '@stencil/core';
 
@@ -31,7 +33,7 @@ export class MyApp {
   }
 
   async componentDidLoad() {
-    this.presentModal();
+    // this.presentModal();
   }
 
   presentModal = async () => {
@@ -65,12 +67,12 @@ export class MyApp {
       component: element
     });
     modalElement.present();
+    /*<ion-modal-controller></ion-modal-controller>*/
   };
 
   render() {
     return (
       <ion-app>
-        <ion-modal-controller></ion-modal-controller>
         <ion-router useHash={false}>
           <ion-route url='/' component='app-home'></ion-route>
           <ion-route url='/profile/:name' component='app-profile'></ion-route>
