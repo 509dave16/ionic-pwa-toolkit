@@ -161,4 +161,37 @@ declare global {
   }
 }
 
+
+declare global {
+
+  namespace StencilComponents {
+    interface NavInjector {
+      'create': () => Promise<HTMLIonNavElement>;
+    }
+  }
+
+  interface HTMLNavInjectorElement extends StencilComponents.NavInjector, HTMLStencilElement {}
+
+  var HTMLNavInjectorElement: {
+    prototype: HTMLNavInjectorElement;
+    new (): HTMLNavInjectorElement;
+  };
+  interface HTMLElementTagNameMap {
+    'nav-injector': HTMLNavInjectorElement;
+  }
+  interface ElementTagNameMap {
+    'nav-injector': HTMLNavInjectorElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'nav-injector': JSXElements.NavInjectorAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface NavInjectorAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
 declare global { namespace JSX { interface StencilJSX {} } }

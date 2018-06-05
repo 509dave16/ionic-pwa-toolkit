@@ -12,8 +12,5 @@ export class ModalControllerInjector implements IStencilElementInjector {
   @Method()
   create(): Promise<HTMLIonModalControllerElement> {
     return element.componentOnReady();
-    // return new Promise(resolve => {
-    //   resolve(element);
-    // });
   }
 }

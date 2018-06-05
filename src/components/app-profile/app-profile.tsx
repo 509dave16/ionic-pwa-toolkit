@@ -2,7 +2,7 @@ import { Component, Listen, Prop, State } from '@stencil/core';
 
 import { urlB64ToUint8Array } from '../../helpers/utils';
 import {IStencilElementInjector} from "../../interfaces/IStencilElementInjector";
-
+import {createSuperModal} from "../../helpers/modal-factory";
 
 @Component({
   tag: 'app-profile',
@@ -22,48 +22,17 @@ export class AppProfile {
   // replace with your key in production
   publicServerKey = urlB64ToUint8Array('BBsb4au59pTKF4IKi-aJkEAGPXxtzs-lbtL58QxolsT2T-3dVQIXTUCCE1TSY8hyUvXLhJFEUmH7b5SJfSTcT-E');
 
-  // componentWillLoad() {
-  //   if ('serviceWorker' in navigator && 'PushManager' in window) {
-  //     this.swSupport = true;
-  //   } else {
-  //     this.swSupport = false;
-  //   }
-  // }
-
-
   componentWillLoad = async() => {
     if ('serviceWorker' in navigator && 'PushManager' in window) {
       this.swSupport = true;
     } else {
       this.swSupport = false;
     }
+  };
+
+  presentModal = async() => {
     this.modalCtrl = (await this.modalCtrlInjector.create()) as HTMLIonModalControllerElement;
-    console.log(this.modalCtrl.create);
-    // create component to open
-    const element = document.createElement('div');
-    element.innerHTML = `
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Super Modal</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <h1>Content of doom</h1>
-        <div>Here's some more content</div>
-        <ion-button class="dismiss">Dismiss Modal</ion-button>
-      </ion-content>
-    `;
-
-    // listen for close event
-    const button = element.querySelector('ion-button');
-    button.addEventListener('click', () => {
-      this.modalCtrl.dismiss();
-    });
-
-    // present the modal
-    const modalElement = await this.modalCtrl.create({
-      component: element
-    });
+    const modalElement: HTMLIonModalElement = (await createSuperModal(this.modalCtrl)) as HTMLIonModalElement;
     modalElement.present();
   };
 
@@ -109,10 +78,6 @@ export class AppProfile {
     return [
       <ion-header>
         <ion-toolbar color='primary'>
-          <ion-buttons slot="start">
-            <ion-back-button defaultHref='/'></ion-back-button>
-          </ion-buttons>
-
           <ion-title>Ionic PWA Toolkit</ion-title>
         </ion-toolbar>
       </ion-header>,
@@ -122,11 +87,13 @@ export class AppProfile {
           Hello! My name is {this.name}.
           My name was passed in through a route param!
         </p>
-
         {this.swSupport ? <ion-item>
           <ion-label>Notifications</ion-label>
           <ion-toggle checked={this.notify} disabled={this.notify}></ion-toggle>
         </ion-item> : null}
+        <ion-button onClick={() => this.presentModal()}>
+          Present Modal
+        </ion-button>
       </ion-content>
     ];
   }
