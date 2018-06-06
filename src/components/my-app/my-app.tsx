@@ -13,6 +13,13 @@ export class MyApp {
   @Prop({connect: 'nav-injector'}) navInjector: StencilComponents.NavInjector;
   private nav: HTMLIonNavElement;
   private menu: HTMLIonMenuControllerElement;
+  private componentRoutes: any[] = [
+    {name: 'Home', component: 'app-home', path: '/home', defaultParams: {}},
+    {name: 'Profile', component: 'app-profile', path: '/profile/:name', defaultParams: {name: 'Iconic'}},
+    {name: 'Login', component: 'login-page', path: '/login'}
+  ];
+
+
   /**
    * Handle service worker updates correctly.
    * This code will showx a toast letting the
@@ -38,7 +45,6 @@ export class MyApp {
   async componentDidLoad() {
     this.nav = (await this.navInjector.create()) as HTMLIonNavElement;
     this.menu = (await this.menuInjector.create()) as HTMLIonMenuControllerElement;
-    this.nav.setRoot('app-profile', { name: 'hello world'});
   }
 
   gotoPage(pageName: string, params: any) {
@@ -49,21 +55,38 @@ export class MyApp {
   render() {
     return (
       <ion-app>
-        <ion-router root={'/home'} useHash={false}>
-          <ion-route url='/home' component='app-home'></ion-route>
-          <ion-route url='/profile/:name' component='app-profile'></ion-route>
+        <ion-router root={'/app'} useHash={false}>
+          {this.renderRoutes()}
         </ion-router>
-        <ion-menu>
-          <ion-content class="menu">
-            <ion-list style={{ 'padding': '10px'}}>
-              <ion-button expand={'block'} onClick={() => this.gotoPage('app-home', {})}>Home</ion-button>
-              <ion-button expand={'block'} onClick={() => this.gotoPage('app-profile', {name: 'iconic'})}>Profile</ion-button>
-            </ion-list>
-          </ion-content>
-        </ion-menu>
+        {this.renderMenu()}
         <ion-nav main></ion-nav>
       </ion-app>
     );
+  }
+
+  renderRoutes() {
+    return this.componentRoutes.map((route: any) => {
+      return <ion-route url={route.path} component={route.component}/>
+    });
+  }
+
+  renderMenu() {
+    return (
+      <ion-menu>
+        <ion-content class="menu">
+          <ion-list style={{'padding': '10px'}}>
+            {this.renderMenuButtions()}
+          </ion-list>
+        </ion-content>
+      </ion-menu>
+    );
+  }
+
+  renderMenuButtions() {
+    return this.componentRoutes.map((route) => {
+      return <ion-button expand={'block'}
+                         onClick={() => this.gotoPage(route.component, route.defaultParams)}>{route.name}</ion-button>
+    })
   }
 }
 
