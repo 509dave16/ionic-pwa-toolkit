@@ -1,7 +1,6 @@
 export function handleInputChangeHoc() {
   return function(propName: string, event: any) {
-    this[propName] = event.target.value
-    console.log(propName, event.target.value);
+    this[propName] = event.target.value;
   };
 }
 
