@@ -99,6 +99,39 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface LoginPage {
+
+    }
+  }
+
+  interface HTMLLoginPageElement extends StencilComponents.LoginPage, HTMLStencilElement {}
+
+  var HTMLLoginPageElement: {
+    prototype: HTMLLoginPageElement;
+    new (): HTMLLoginPageElement;
+  };
+  interface HTMLElementTagNameMap {
+    'login-page': HTMLLoginPageElement;
+  }
+  interface ElementTagNameMap {
+    'login-page': HTMLLoginPageElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'login-page': JSXElements.LoginPageAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LoginPageAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface MenuControllerInjector {
       'create': () => Promise<HTMLIonMenuControllerElement>;
     }
