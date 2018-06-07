@@ -16,7 +16,8 @@ export class MyApp {
   private componentRoutes: any[] = [
     {name: 'Home', component: 'app-home', path: '/home', defaultParams: {}},
     {name: 'Profile', component: 'app-profile', path: '/profile/:name', defaultParams: {name: 'Iconic'}},
-    {name: 'Login', component: 'login-page', path: '/login'}
+    {name: 'Login', component: 'login-page', path: '/login'},
+    {name: 'Registration', component: 'registration-page', path: '/registration'}
   ];
 
 
@@ -55,7 +56,7 @@ export class MyApp {
   render() {
     return (
       <ion-app>
-        <ion-router root={'/app'} useHash={false}>
+        <ion-router root={'/'} useHash={false}>
           {this.renderRoutes()}
         </ion-router>
         {this.renderMenu()}

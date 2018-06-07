@@ -1,8 +1,10 @@
 import {Component, Prop, State} from "@stencil/core";
 import {BaseComponent} from "../common/classes/BaseComponent";
+import {SuperLoginService} from "../common/superlogin-service";
 
 @Component({tag: 'login-page'})
 export class LoginPage extends BaseComponent {
+  @Prop({connect: 'ion-loading-controller'}) loadCtrl: StencilComponents.IonLoadingController;
   @State() username: string;
   @State() password: string;
   @Prop({connect: 'nav-injector'}) navInjector: StencilComponents.NavInjector;
@@ -18,8 +20,11 @@ export class LoginPage extends BaseComponent {
   }
 
   login = async () => {
-    // TODO: Use superlogin here
+    const loading = await this.loadCtrl.create({content: 'Logging In'});
+    loading.present();
     console.log(this.username, this.password);
+    await SuperLoginService.login(this.username, this.password);
+    loading.dismiss();
     this.nav.setRoot('app-home', {});
   };
 
@@ -39,7 +44,7 @@ export class LoginPage extends BaseComponent {
             </ion-item>
             <ion-item>
               <ion-label>Password</ion-label>
-              <ion-input onInput={(e) => this.handleInputChange('username', e)} type={'password'}/>
+              <ion-input onInput={(e) => this.handleInputChange('password', e)} type={'password'}/>
             </ion-item>
             <ion-button expand={'block'} type={'submit'}>Submit</ion-button>
           </form>

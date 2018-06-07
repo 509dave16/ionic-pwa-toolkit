@@ -260,4 +260,37 @@ declare global {
   }
 }
 
+
+declare global {
+
+  namespace StencilComponents {
+    interface RegistrationPage {
+
+    }
+  }
+
+  interface HTMLRegistrationPageElement extends StencilComponents.RegistrationPage, HTMLStencilElement {}
+
+  var HTMLRegistrationPageElement: {
+    prototype: HTMLRegistrationPageElement;
+    new (): HTMLRegistrationPageElement;
+  };
+  interface HTMLElementTagNameMap {
+    'registration-page': HTMLRegistrationPageElement;
+  }
+  interface ElementTagNameMap {
+    'registration-page': HTMLRegistrationPageElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'registration-page': JSXElements.RegistrationPageAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface RegistrationPageAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
 declare global { namespace JSX { interface StencilJSX {} } }
