@@ -99,6 +99,105 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface LoginPage {
+
+    }
+  }
+
+  interface HTMLLoginPageElement extends StencilComponents.LoginPage, HTMLStencilElement {}
+
+  var HTMLLoginPageElement: {
+    prototype: HTMLLoginPageElement;
+    new (): HTMLLoginPageElement;
+  };
+  interface HTMLElementTagNameMap {
+    'login-page': HTMLLoginPageElement;
+  }
+  interface ElementTagNameMap {
+    'login-page': HTMLLoginPageElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'login-page': JSXElements.LoginPageAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LoginPageAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface MenuControllerInjector {
+      'create': () => Promise<HTMLIonMenuControllerElement>;
+    }
+  }
+
+  interface HTMLMenuControllerInjectorElement extends StencilComponents.MenuControllerInjector, HTMLStencilElement {}
+
+  var HTMLMenuControllerInjectorElement: {
+    prototype: HTMLMenuControllerInjectorElement;
+    new (): HTMLMenuControllerInjectorElement;
+  };
+  interface HTMLElementTagNameMap {
+    'menu-controller-injector': HTMLMenuControllerInjectorElement;
+  }
+  interface ElementTagNameMap {
+    'menu-controller-injector': HTMLMenuControllerInjectorElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'menu-controller-injector': JSXElements.MenuControllerInjectorAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface MenuControllerInjectorAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface ModalControllerInjector {
+      'create': () => Promise<HTMLIonModalControllerElement>;
+    }
+  }
+
+  interface HTMLModalControllerInjectorElement extends StencilComponents.ModalControllerInjector, HTMLStencilElement {}
+
+  var HTMLModalControllerInjectorElement: {
+    prototype: HTMLModalControllerInjectorElement;
+    new (): HTMLModalControllerInjectorElement;
+  };
+  interface HTMLElementTagNameMap {
+    'modal-controller-injector': HTMLModalControllerInjectorElement;
+  }
+  interface ElementTagNameMap {
+    'modal-controller-injector': HTMLModalControllerInjectorElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'modal-controller-injector': JSXElements.ModalControllerInjectorAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ModalControllerInjectorAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface MyApp {
 
     }
@@ -123,6 +222,72 @@ declare global {
   }
   namespace JSXElements {
     export interface MyAppAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface NavInjector {
+      'create': () => Promise<HTMLIonNavElement>;
+    }
+  }
+
+  interface HTMLNavInjectorElement extends StencilComponents.NavInjector, HTMLStencilElement {}
+
+  var HTMLNavInjectorElement: {
+    prototype: HTMLNavInjectorElement;
+    new (): HTMLNavInjectorElement;
+  };
+  interface HTMLElementTagNameMap {
+    'nav-injector': HTMLNavInjectorElement;
+  }
+  interface ElementTagNameMap {
+    'nav-injector': HTMLNavInjectorElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'nav-injector': JSXElements.NavInjectorAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface NavInjectorAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface RegistrationPage {
+
+    }
+  }
+
+  interface HTMLRegistrationPageElement extends StencilComponents.RegistrationPage, HTMLStencilElement {}
+
+  var HTMLRegistrationPageElement: {
+    prototype: HTMLRegistrationPageElement;
+    new (): HTMLRegistrationPageElement;
+  };
+  interface HTMLElementTagNameMap {
+    'registration-page': HTMLRegistrationPageElement;
+  }
+  interface ElementTagNameMap {
+    'registration-page': HTMLRegistrationPageElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'registration-page': JSXElements.RegistrationPageAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface RegistrationPageAttributes extends HTMLAttributes {
 
     }
   }
