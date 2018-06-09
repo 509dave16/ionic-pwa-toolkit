@@ -1,6 +1,9 @@
 import '@ionic/core';
 import {Component, Prop, Listen} from '@stencil/core';
 import {MenuControllerInjector} from "../menu-controller-injector/menu-controller-injector";
+import SuperloginClient from 'superlogin-client';
+import {SuperloginClientConfig} from "../../common/config/superlogin-client.config";
+SuperloginClient.configure(SuperloginClientConfig);
 
 @Component({
   tag: 'my-app',
@@ -17,7 +20,7 @@ export class MyApp {
     {name: 'Home', component: 'app-home', path: '/home', defaultParams: {}},
     {name: 'Profile', component: 'app-profile', path: '/profile/:name', defaultParams: {name: 'Iconic'}},
     {name: 'Login', component: 'login-page', path: '/login'},
-    {name: 'Registration', component: 'registration-page', path: '/registration'}
+    {name: 'Registration', component: 'registration-page', path: '/registration'},
   ];
 
 

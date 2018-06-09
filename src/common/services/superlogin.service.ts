@@ -1,5 +1,6 @@
 export class SuperLogin {
-  private url: string = 'https://dsf-pouchdb-auth.herokuapp.com';
+  // private url: string = 'https://dsf-pouchdb-auth.herokuapp.com';
+  private url: string = 'http://www.superlogin-local.com:3000';
   private session: any;
   constructor() {}
 
@@ -48,5 +49,12 @@ export class SuperLogin {
     this.session = session;
     localStorage.setItem('superlogin.session', JSON.stringify(this.session));
   }
+
+  getDbUrl(dbName) {
+    if (this.session.userDBs && this.session.userDBs[dbName]) {
+      return this.session.userDBs[dbName];
+    }
+    return null;
+  }
 }
-export const SuperLoginService: SuperLogin = new SuperLogin();
+export const SuperloginService: SuperLogin = new SuperLogin();
