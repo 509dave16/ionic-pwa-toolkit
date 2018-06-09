@@ -293,4 +293,37 @@ declare global {
   }
 }
 
+
+declare global {
+
+  namespace StencilComponents {
+    interface RxdbPage {
+      'createAuthorName': string;
+    }
+  }
+
+  interface HTMLRxdbPageElement extends StencilComponents.RxdbPage, HTMLStencilElement {}
+
+  var HTMLRxdbPageElement: {
+    prototype: HTMLRxdbPageElement;
+    new (): HTMLRxdbPageElement;
+  };
+  interface HTMLElementTagNameMap {
+    'rxdb-page': HTMLRxdbPageElement;
+  }
+  interface ElementTagNameMap {
+    'rxdb-page': HTMLRxdbPageElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'rxdb-page': JSXElements.RxdbPageAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface RxdbPageAttributes extends HTMLAttributes {
+      'createAuthorName'?: string;
+    }
+  }
+}
+
 declare global { namespace JSX { interface StencilJSX {} } }
