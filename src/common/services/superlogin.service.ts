@@ -4,9 +4,8 @@ export class SuperLogin {
   private session: any;
   constructor() {}
 
-  async login(username, password) {
+  async login(credentials: { username: string, password: string}) {
     const headers: any = {'Content-Type': 'application/json', 'Accept': 'application/json'};
-    const credentials = { username, password };
     try {
       const response: Response = await fetch(`${this.url}/auth/login`, {
         method: 'POST',
@@ -25,8 +24,7 @@ export class SuperLogin {
     return true;
   }
 
-  async register(name: string, username: string, password: string, confirmPassword: string, email: string) {
-    const form = { name, username, password, confirmPassword, email };
+  async register(form: { name: string, username: string, password: string, confirmPassword: string, email: string }) {
     const headers: any = {'Content-Type': 'application/json', 'Accept': 'application/json'};
     try {
       const response: Response = await fetch(`${this.url}/auth/register`, {

@@ -1,15 +1,15 @@
-import {Component, Prop} from "@stencil/core";
+import {Component, Prop, State} from "@stencil/core";
 import {RxDBService} from "../common/services/rxdb.service";
 import {BaseComponent} from "../common/classes/BaseComponent";
 @Component({tag: 'rxdb-page'})
 export class RxdbPage extends BaseComponent {
-  @Prop() createAuthorName: string;
+  @State() createAuthorName: string;
   @Prop({ connect: 'ion-loading-controller'}) loadCtrl: StencilComponents.IonLoadingController;
 
   createAuthor = async() => {
     const loading: StencilComponents.IonLoading = await this.loadCtrl.create({ content: "Creating author"});
     loading.present();
-    await RxDBService.createAuthor(new Date(), this.createAuthorName);
+    await RxDBService.createAuthor(this.createAuthorName);
     loading.dismiss();
   };
 
@@ -26,7 +26,7 @@ export class RxdbPage extends BaseComponent {
           <form onSubmit={(e) => this.handleFormSubmit(e, this.createAuthor)}>
             <ion-item>
               <ion-label>Name</ion-label>
-              <ion-input onInput={(e) => this.handleInputChange('name', e)} type={'text'}/>
+              <ion-input onInput={(e) => this.handleInputChange('createAuthorName', e)} type={'text'}/>
             </ion-item>
             <ion-button expand={'block'} type={'submit'}>Submit</ion-button>
           </form>

@@ -1,9 +1,9 @@
 import '@ionic/core';
 import {Component, Prop, Listen} from '@stencil/core';
 import {MenuControllerInjector} from "../menu-controller-injector/menu-controller-injector";
-import SuperloginClient from 'superlogin-client';
-import {SuperloginClientConfig} from "../../common/config/superlogin-client.config";
-SuperloginClient.configure(SuperloginClientConfig);
+// import SuperloginClient from 'superlogin-client';
+// import {SuperloginClientConfig} from "../../common/config/superlogin-client.config";
+// SuperloginClient.configure(SuperloginClientConfig);
 
 @Component({
   tag: 'my-app',

@@ -1,6 +1,7 @@
 import {Component, Prop, State} from "@stencil/core";
 import {BaseComponent} from "../common/classes/BaseComponent";
-import SuperloginClient from 'superlogin-client';
+// import SuperloginClient from 'superlogin-client';
+import {SuperloginService} from "../common/services/superlogin.service";
 import {RxDBService} from "../common/services/rxdb.service";
 
 @Component({tag: 'login-page'})
@@ -25,7 +26,8 @@ export class LoginPage extends BaseComponent {
     loading.present();
     try {
       const credentials = { username: this.username, password: this.password };
-      await SuperloginClient.login(credentials);
+      // await SuperloginClient.login(credentials);
+      await SuperloginService.login(credentials);
       await RxDBService.init();
     } catch(e) {
       console.log(e);

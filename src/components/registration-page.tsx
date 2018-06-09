@@ -1,6 +1,7 @@
 import {Component, Prop, State} from "@stencil/core";
 import {BaseComponent} from "../common/classes/BaseComponent";
-import SuperloginClient from 'superlogin-client';
+import {SuperloginService} from "../common/services/superlogin.service";
+// import SuperloginClient from 'superlogin-client';
 
 @Component({tag: 'registration-page'})
 export class RegistrationPage extends BaseComponent {
@@ -27,7 +28,8 @@ export class RegistrationPage extends BaseComponent {
     const loading: HTMLIonLoadingElement = await this.loadCtrl.create({ content: 'Registering'});
     loading.present();
     const form = { username: this.username, email: this.email, name: this.name, password: this.password, confirmPassword: this.confirmPassword };
-    const success: boolean = await SuperloginClient.register(form);
+    // const success: boolean = await SuperloginClient.register(form);
+    const success: boolean = await SuperloginService.register(form);
     loading.dismiss();
     console.log(this.nav);
     if (success) {

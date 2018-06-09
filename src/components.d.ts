@@ -298,7 +298,7 @@ declare global {
 
   namespace StencilComponents {
     interface RxdbPage {
-      'createAuthorName': string;
+
     }
   }
 
@@ -321,7 +321,7 @@ declare global {
   }
   namespace JSXElements {
     export interface RxdbPageAttributes extends HTMLAttributes {
-      'createAuthorName'?: string;
+
     }
   }
 }
