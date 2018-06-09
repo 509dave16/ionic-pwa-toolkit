@@ -17,7 +17,7 @@ exports.config = {
   plugins: [
     sass()
   ],
-  enableCache: false
+  enableCache: true
 };
 
 exports.devServer = {
