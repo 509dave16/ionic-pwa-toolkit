@@ -17,7 +17,12 @@
   },
   "dependencies": {
     "@ionic/core": "4.0.0-alpha.7",
-    "@stencil/core": "^0.9.6"
+    "@stencil/core": "^0.9.6",
+    "babel-polyfill": "^6.26.0",
+    "pouchdb-adapter-idb": "^6.4.3",
+    "rxdb": "^7.6.1",
+    "rxjs": "^6.1.0",
+    "superlogin-client": "^0.8.0"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",
