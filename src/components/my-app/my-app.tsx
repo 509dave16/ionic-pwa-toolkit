@@ -21,6 +21,7 @@ export class MyApp {
     {name: 'Profile', component: 'app-profile', path: '/profile/:name', defaultParams: {name: 'Iconic'}},
     {name: 'Login', component: 'login-page', path: '/login'},
     {name: 'Registration', component: 'registration-page', path: '/registration'},
+    {name: 'RxDB', component: 'rxdb-page', path: '/rxdb'},
   ];
 
 
