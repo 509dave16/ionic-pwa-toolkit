@@ -3,7 +3,6 @@ import {createSuperModal} from "../../helpers/modal-factory";
 
 @Component({
   tag: 'app-home',
-  styleUrl: 'app-home.css'
 })
 export class AppHome {
 

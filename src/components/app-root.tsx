@@ -1,15 +1,14 @@
 import '@ionic/core';
 import {Component, Prop, Listen} from '@stencil/core';
-import {MenuControllerInjector} from "../menu-controller-injector/menu-controller-injector";
-// import SuperloginClient from 'superlogin-client';
-// import {SuperloginClientConfig} from "../../common/config/superlogin-client.config";
-// SuperloginClient.configure(SuperloginClientConfig);
+import {MenuControllerInjector} from "./injectors/menu-controller-injector";
+import SuperloginClient from 'superlogin-client';
+import {SuperloginClientConfig} from "../common/config/superlogin-client.config";
+SuperloginClient.configure(SuperloginClientConfig);
 
 @Component({
-  tag: 'my-app',
-  styleUrl: 'my-app.css'
+  tag: 'app-root',
 })
-export class MyApp {
+export class AppRoot {
 
   @Prop({connect: 'ion-toast-controller'}) toastCtrl: HTMLIonToastControllerElement;
   @Prop({connect: 'menu-controller-injector'}) menuInjector: MenuControllerInjector;

@@ -6,7 +6,6 @@ import {createSuperModal} from "../../helpers/modal-factory";
 
 @Component({
   tag: 'app-profile',
-  styleUrl: 'app-profile.css'
 })
 export class AppProfile {
   @Prop({'connect': 'modal-controller-injector'}) modalCtrlInjector: IStencilElementInjector;

@@ -33,6 +33,138 @@ import 'ionicons';
 declare global {
 
   namespace StencilComponents {
+    interface AppRoot {
+
+    }
+  }
+
+  interface HTMLAppRootElement extends StencilComponents.AppRoot, HTMLStencilElement {}
+
+  var HTMLAppRootElement: {
+    prototype: HTMLAppRootElement;
+    new (): HTMLAppRootElement;
+  };
+  interface HTMLElementTagNameMap {
+    'app-root': HTMLAppRootElement;
+  }
+  interface ElementTagNameMap {
+    'app-root': HTMLAppRootElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'app-root': JSXElements.AppRootAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppRootAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface MenuControllerInjector {
+      'create': () => Promise<HTMLIonMenuControllerElement>;
+    }
+  }
+
+  interface HTMLMenuControllerInjectorElement extends StencilComponents.MenuControllerInjector, HTMLStencilElement {}
+
+  var HTMLMenuControllerInjectorElement: {
+    prototype: HTMLMenuControllerInjectorElement;
+    new (): HTMLMenuControllerInjectorElement;
+  };
+  interface HTMLElementTagNameMap {
+    'menu-controller-injector': HTMLMenuControllerInjectorElement;
+  }
+  interface ElementTagNameMap {
+    'menu-controller-injector': HTMLMenuControllerInjectorElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'menu-controller-injector': JSXElements.MenuControllerInjectorAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface MenuControllerInjectorAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface ModalControllerInjector {
+      'create': () => Promise<HTMLIonModalControllerElement>;
+    }
+  }
+
+  interface HTMLModalControllerInjectorElement extends StencilComponents.ModalControllerInjector, HTMLStencilElement {}
+
+  var HTMLModalControllerInjectorElement: {
+    prototype: HTMLModalControllerInjectorElement;
+    new (): HTMLModalControllerInjectorElement;
+  };
+  interface HTMLElementTagNameMap {
+    'modal-controller-injector': HTMLModalControllerInjectorElement;
+  }
+  interface ElementTagNameMap {
+    'modal-controller-injector': HTMLModalControllerInjectorElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'modal-controller-injector': JSXElements.ModalControllerInjectorAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ModalControllerInjectorAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface NavInjector {
+      'create': () => Promise<HTMLIonNavElement>;
+    }
+  }
+
+  interface HTMLNavInjectorElement extends StencilComponents.NavInjector, HTMLStencilElement {}
+
+  var HTMLNavInjectorElement: {
+    prototype: HTMLNavInjectorElement;
+    new (): HTMLNavInjectorElement;
+  };
+  interface HTMLElementTagNameMap {
+    'nav-injector': HTMLNavInjectorElement;
+  }
+  interface ElementTagNameMap {
+    'nav-injector': HTMLNavInjectorElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'nav-injector': JSXElements.NavInjectorAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface NavInjectorAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface AppHome {
 
     }
@@ -123,138 +255,6 @@ declare global {
   }
   namespace JSXElements {
     export interface LoginPageAttributes extends HTMLAttributes {
-
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface MenuControllerInjector {
-      'create': () => Promise<HTMLIonMenuControllerElement>;
-    }
-  }
-
-  interface HTMLMenuControllerInjectorElement extends StencilComponents.MenuControllerInjector, HTMLStencilElement {}
-
-  var HTMLMenuControllerInjectorElement: {
-    prototype: HTMLMenuControllerInjectorElement;
-    new (): HTMLMenuControllerInjectorElement;
-  };
-  interface HTMLElementTagNameMap {
-    'menu-controller-injector': HTMLMenuControllerInjectorElement;
-  }
-  interface ElementTagNameMap {
-    'menu-controller-injector': HTMLMenuControllerInjectorElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'menu-controller-injector': JSXElements.MenuControllerInjectorAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface MenuControllerInjectorAttributes extends HTMLAttributes {
-
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface ModalControllerInjector {
-      'create': () => Promise<HTMLIonModalControllerElement>;
-    }
-  }
-
-  interface HTMLModalControllerInjectorElement extends StencilComponents.ModalControllerInjector, HTMLStencilElement {}
-
-  var HTMLModalControllerInjectorElement: {
-    prototype: HTMLModalControllerInjectorElement;
-    new (): HTMLModalControllerInjectorElement;
-  };
-  interface HTMLElementTagNameMap {
-    'modal-controller-injector': HTMLModalControllerInjectorElement;
-  }
-  interface ElementTagNameMap {
-    'modal-controller-injector': HTMLModalControllerInjectorElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'modal-controller-injector': JSXElements.ModalControllerInjectorAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface ModalControllerInjectorAttributes extends HTMLAttributes {
-
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface MyApp {
-
-    }
-  }
-
-  interface HTMLMyAppElement extends StencilComponents.MyApp, HTMLStencilElement {}
-
-  var HTMLMyAppElement: {
-    prototype: HTMLMyAppElement;
-    new (): HTMLMyAppElement;
-  };
-  interface HTMLElementTagNameMap {
-    'my-app': HTMLMyAppElement;
-  }
-  interface ElementTagNameMap {
-    'my-app': HTMLMyAppElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'my-app': JSXElements.MyAppAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface MyAppAttributes extends HTMLAttributes {
-
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface NavInjector {
-      'create': () => Promise<HTMLIonNavElement>;
-    }
-  }
-
-  interface HTMLNavInjectorElement extends StencilComponents.NavInjector, HTMLStencilElement {}
-
-  var HTMLNavInjectorElement: {
-    prototype: HTMLNavInjectorElement;
-    new (): HTMLNavInjectorElement;
-  };
-  interface HTMLElementTagNameMap {
-    'nav-injector': HTMLNavInjectorElement;
-  }
-  interface ElementTagNameMap {
-    'nav-injector': HTMLNavInjectorElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'nav-injector': JSXElements.NavInjectorAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface NavInjectorAttributes extends HTMLAttributes {
 
     }
   }

@@ -1,5 +1,5 @@
 import {Component, Prop, State} from "@stencil/core";
-import {BaseComponent} from "../common/classes/BaseComponent";
+import {BaseComponent} from "../../common/classes/BaseComponent";
 import SuperloginClient from 'superlogin-client';
 // import {SuperloginService} from "../common/services/superlogin.service";
 // import {RxDBService} from "../common/services/rxdb.service";

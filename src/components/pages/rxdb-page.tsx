@@ -1,6 +1,6 @@
 import {Component, Prop, State} from "@stencil/core";
 // import {RxDBService} from "../common/services/rxdb.service";
-import {BaseComponent} from "../common/classes/BaseComponent";
+import {BaseComponent} from "../../common/classes/BaseComponent";
 @Component({tag: 'rxdb-page'})
 export class RxdbPage extends BaseComponent {
   @State() createAuthorName: string;
@@ -12,7 +12,7 @@ export class RxdbPage extends BaseComponent {
     // await RxDBService.createAuthor(this.createAuthorName);
     // loading.dismiss();
   };
-  
+
   render() {
     return [
       <ion-header>
